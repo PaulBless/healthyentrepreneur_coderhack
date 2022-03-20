@@ -1,40 +1,43 @@
-<?php  require_once 'db/db.php';
+<?php  
 
-    $products_array = [];
+    // require_once 'db/db.php';
 
-    $get_products = mysqli_query($connectionString,"SELECT * FROM `tbl_products`")or die(mysqli_error($connectionString));
+    // $products_array = [];
+
+    // $get_products = mysqli_query($connectionString,"SELECT * FROM `tbl_products`")or die(mysqli_error($connectionString));
                                             
-    while ($each_product = mysqli_fetch_array($get_products)) { 
-    $product_id = $each_product['tbl_products_id'];
-    $product_name = $each_product['product_name'];
-    
-    $products_array += [$product_id=>$product_name]; 
-    }
-
-
+    // while ($each_product = mysqli_fetch_array($get_products)) { 
+        // $product_id = $each_product['tbl_products_id'];
+        // $product_name = $each_product['product_name'];
+        
+        // $products_array += [$product_id=>$product_name]; 
+    // }
 
 
 ?>
 
 
 <?php 
+    
+    require_once 'header/admin-header.php'; 
+    require_once 'sidebar/client-sidebar.php';   
 
-    if($_COOKIE['c_r'] === 'p' && $_COOKIE['u_r']==='p'){
-        require_once 'header/client-header.php'; 
-        require_once 'sidebar/client-sidebar.php';   
-    }else{
-        require_once 'header/admin-header.php'; 
-        require_once 'sidebar/admin-sidebar.php';   
-    }
+    // if($_COOKIE['c_r'] === 'p' && $_COOKIE['u_r']==='p'){
+    //     require_once 'header/client-header.php'; 
+    //     require_once 'sidebar/client-sidebar.php';   
+    // }else{
+    //     require_once 'header/admin-header.php'; 
+    //     require_once 'sidebar/client-sidebar.php';   
+    // }
 
 ?>
 
 
 <?php
 
-    $get_currency = mysqli_query($connectionString,"SELECT * FROM tbl_settings WHERE settings_id = 7") or die(mysqli_error($connectionString));
-    $get_currency_item = mysqli_fetch_array($get_currency);
-    $currency = $get_currency_item['settings_ans'];
+    // $get_currency = mysqli_query($connectionString,"SELECT * FROM tbl_settings WHERE settings_id = 7") or die(mysqli_error($connectionString));
+    // $get_currency_item = mysqli_fetch_array($get_currency);
+    // $currency = $get_currency_item['settings_ans'];
 
 ?>
 
@@ -108,7 +111,7 @@
                         </div>
 
                         </div>
-                              <h4 class="page-title" style="letter-spacing: 2px;">Sales Point</h4>
+                            <h4 class="page-title" style="letter-spacing: 2px;"> Point of Sales</h4>
                     </div>
                 </div>
             </div>
@@ -123,20 +126,15 @@
                         <form method="post" id="pos-form" style="width:100%">
                             <table class="table table-bordered table-hover " id="invoiceItem" width="100">
                                 <thead class="bg-dark text-white">
-                                    <?php 
-                                    if($_COOKIE['c_r'] === 'p' && $_COOKIE['u_r']==='p'){ ?>
-                                    <input type="hidden" name="role" value="<?php echo $_COOKIE['u_i'];  ?>">
-                                    <?php  }else{ ?>
-                                    <input type="hidden" name="role" value="0">
-                                    <?php   } ?>
+                                    
                                     <tr  class="text-center">
                                         <th width="2%"><input id="checkAll" class="formcontrol" type="checkbox"></th>
                                         <th width="26%">Item Name</th>
                                         <th width="15%">Quantity Type</th>
                                         <th width="12%">Available</th>
                                         <th width="12%">Quantity</th>
-                                        <th width="15%">Price <?php echo $currency; ?></th>
-                                        <th width="18%">Total <?php echo $currency; ?></th>
+                                        <th width="15%">Price <?php //echo $currency; ?></th>
+                                        <th width="18%">Total <?php //echo $currency; ?></th>
                                     </tr>
                                 </thead>
 
@@ -210,7 +208,7 @@
                                         <label>Tax Amount: &nbsp;</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text"><?php  echo $currency; ?></div>
+                                                <div class="input-group-text"><?php  //echo $currency; ?></div>
                                             </div>
                                             <input value="" readonly type="text" class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount">
                                         </div>
@@ -235,7 +233,7 @@
                                         <label>Discount Amount: &nbsp;</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text"><?php  echo $currency; ?></div>
+                                                <div class="input-group-text"><?php  //echo $currency; ?></div>
                                             </div>
                                             <input value="" type="text" readonly class="form-control" name="discountAmount"
                                                 id="discountAmount" placeholder="Discount Amount">
@@ -254,7 +252,7 @@
                                     <label>Subtotal: &nbsp;</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><?php  echo $currency; ?></div>
+                                            <div class="input-group-text"><?php  //echo $currency; ?></div>
                                         </div>
                                         <input value="" type="text" readonly class="form-control" name="subTotal" id="subTotal" placeholder="Subtotal">
                                     </div>
@@ -266,7 +264,7 @@
                                         <label>Total: &nbsp;</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text"><?php  echo $currency; ?></div>
+                                                <div class="input-group-text"><?php  //echo $currency; ?></div>
                                             </div>
                                             <input value="" readonly type="text" class="form-control" name="totalAftertax"
                                                 id="totalAftertax" placeholder="Total">
@@ -280,7 +278,7 @@
                                         <label class="text-dark ">Amount Paid: &nbsp;</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text"><?php  echo $currency; ?></div>
+                                                <div class="input-group-text"><?php  //echo $currency; ?></div>
                                             </div>
                                             <!-- <input value="" type="float" required="required" class="form-control text-primary font-weight-bold border-secondary" name="amountPaid" id="amountPaid" placeholder="Amount Paid"> -->
                                             <input type="float" autocomplete="off" class="form-control text-center text-success font-weight-bold border-dark" maxlength="10" onkeypress="return isNumberKey(event)" name="amountPaid" id="amountPaid" placeholder="Amount Paid" required="required">                                        
@@ -293,7 +291,7 @@
                                     <label>Balance: &nbsp;</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><?php  echo $currency; ?></div>
+                                            <div class="input-group-text"><?php  //echo $currency; ?></div>
                                         </div>
                                         <input value="" readonly type="text" class="form-control text-danger font-weight-bold" name="amountDue" id="amountDue" placeholder="Balance">
                                     </div>

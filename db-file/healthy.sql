@@ -26,7 +26,7 @@ USE `healthy_entrepreneurs`;
 
 -- Table structure for table `products_table`
 --
-CREATE TABLE `products_table` (
+CREATE TABLE `tbl_products` (
   `pid` int(11) NOT NULL AUTO_INCREMENT,
   `product_name` varchar(119) NOT NULL,
   `product_price` double(10,2) NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE `products_table` (
 
 -------------------------------------------
 -- Table structure for table `users_table`
-CREATE TABLE `users_table` (
+CREATE TABLE `tbl_users` (
   `userid` int(11) NOT NULL AUTO_INCREMENT,
   `full_name` varchar(255) NOT NULL,
   `town` varchar(50) NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE `users_table` (
 -- --------------------------------------------------------
 -- Table structure for table `role_table`
 --
-CREATE TABLE `role_table` (
+CREATE TABLE `tbl_roles` (
   `role_id` int(11) NOT NULL AUTO_INCREMENT,
   `role_name` varchar(50) NOT NULL,
   `role_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -72,7 +72,7 @@ CREATE TABLE `role_table` (
 
 -- Dumping data for table `role_table`
 --
-INSERT INTO `role_table` (`role_id`, `role_name`, `role_timestamp`) VALUES
+INSERT INTO `tbl_roles` (`role_id`, `role_name`, `role_timestamp`) VALUES
 (1, 'HE', CURRENT_TIMESTAMP),
 (2, 'CHE', CURRENT_TIMESTAMP);
 
@@ -80,7 +80,7 @@ INSERT INTO `role_table` (`role_id`, `role_name`, `role_timestamp`) VALUES
 
 --
 -- Table structure for table `status_table`
-CREATE TABLE `status_table` (
+CREATE TABLE `tbl_status` (
   `status_id` int(11) NOT NULL AUTO_INCREMENT,
   `status_name` varchar(50) NOT NULL,
   `status_timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -89,7 +89,7 @@ CREATE TABLE `status_table` (
 
 --
 -- Dumping data for table `status_table`
-INSERT INTO `status_table` (`status_id`, `status_name`, `status_timestamp`) VALUES
+INSERT INTO `tbl_status` (`status_id`, `status_name`, `status_timestamp`) VALUES
 (1, 'Closed', CURRENT_TIMESTAMP),
 (2, 'Open', CURRENT_TIMESTAMP);
 
@@ -106,21 +106,20 @@ INSERT INTO `status_table` (`status_id`, `status_name`, `status_timestamp`) VALU
 --
 
 CREATE TABLE `tbl_each_purchase` (
-  `each_purchase_id` int(11) NOT NULL,
+  `each_purchase_id` int(11) NOT NULL AUTO_INCREMENT,
   `purchase_id` int(11) DEFAULT 0,
   `total_quantity` int(11) DEFAULT 0,
   `total_amount` varchar(50) DEFAULT NULL,
-  `purchase_timestamp` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `purchase_timestamp` timestamp NULL DEFAULT current_timestamp,
+  PRIMARY KEY (`each_purchase_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `tbl_each_sales`
---
 
+-- Table structure for table `tbl_each_sales`
 CREATE TABLE `tbl_each_sales` (
-  `each_sales_id` int(11) NOT NULL,
+  `each_sales_id` int(11) NOT NULL AUTO_INCREMENT,
   `sales_id_number` int(11) DEFAULT NULL,
   `tax_rate` int(11) DEFAULT NULL,
   `tax_amount` varchar(50) DEFAULT NULL,
@@ -130,23 +129,34 @@ CREATE TABLE `tbl_each_sales` (
   `sales_total` varchar(50) DEFAULT NULL,
   `sales_seller` int(11) DEFAULT NULL,
   `amount_paid` varchar(200) NOT NULL,
-  `sales_timestamp` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `sales_timestamp` timestamp NULL DEFAULT current_timestamp,
+  PRIMARY KEY (`each_sales_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 
 -- --------------------------------------------------------
 -- Table structure for table `tbl_expenses`
---
 CREATE TABLE `tbl_expenses` (
-  `expense_id` int(11) NOT NULL,
+  `expense_id` int(11) NOT NULL AUTO_INCREMENT,
   `expense_auto_id` int(11) NOT NULL,
   `expense_category` int(11) NOT NULL,
   `expense_amount` varchar(50) NOT NULL,
   `expense_account` int(11) NOT NULL,
   `expense_by` int(11) NOT NULL,
-  `expense_timestamp` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `expense_timestamp` timestamp NOT NULL DEFAULT current_timestamp,
+  PRIMARY KEY (`expense_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
+-- Table structure for `customers`
+CREATE TABLE `tbl_customers` (
+  `customer_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `customer_name` varchar(255) NOT NULL,
+  `customer_phone` varchar(10) NOT NULL,
+  `customer_district` varchar(155) NOT NULL,
+  `customer_address` mediumtext NOT NULL,
+  `customer_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`customer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 

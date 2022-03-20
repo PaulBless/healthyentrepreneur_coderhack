@@ -336,7 +336,7 @@ require_once 'sidebar/client-sidebar.php';
                                     <div class="page-title-right">
                                        
                                     </div>
-                                          <h4 class="page-title text-danger" style="letter-spacing: 2px;">CHE Dashboard</h4>
+                                          <h4 class="page-title text-danger" style="letter-spacing: 2px;">Community Health Entrepreneurs Dashboard</h4>
                                 </div>
                             </div>
                         </div>     

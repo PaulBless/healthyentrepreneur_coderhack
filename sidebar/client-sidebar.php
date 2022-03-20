@@ -9,9 +9,9 @@
                         <ul class="metismenu" id="side-menu">
 
                             <li>
-                                <a href="dashboard.php">
-                                    <i class="la la-dashboard"></i>
-                                    <span> Dashboard </span>
+                                <a href="customers.php">
+                                    <i class="la la-users"></i>
+                                    <span> Customers </span>
                                 </a>
                             </li>
 
@@ -23,7 +23,6 @@
                                 </a>
                             
                             </li>
-
 
                             <li>
                                 <a href="sales.php">

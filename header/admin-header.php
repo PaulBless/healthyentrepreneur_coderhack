@@ -113,13 +113,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-    <title>Quick Sales | Admin</title>
+    <title>Healthy Entrepreneurs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="A powerful point of sale management system for your shops" name="description" />
-    <meta content="point of sale Management System" name="zelus" />
+    <meta content="A powerful customer loyalty program and data " name="description" />
+    <meta content="Healthy_Entrepreneurs" name="Jecmas" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/bubbles_logo.jpg">
+    <link rel="shortcut icon" href="assets/images/Healthy_Entrepreneurs.png">
 
     <!-- third party css -->
     <link href="assets/libs/datatables/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
@@ -158,57 +158,57 @@
 
      <script>
         paceOptions = {
-  // Configuration goes here. Example:
-  elements: false,
-  restartOnPushState: false,
-  restartOnRequestAfter: false
-}
+        // Configuration goes here. Example:
+        elements: false,
+        restartOnPushState: false,
+        restartOnRequestAfter: false
+        }
      </script>
 
     <style>
-           /* ajax loading preloader */
-     .preloader{
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 99999;
-      overflow: hidden;
-      background: #ffffff;
-      }
+        /* ajax loading preloader */
+        .preloader{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99999;
+        overflow: hidden;
+        background: #ffffff;
+        }
 
-    .preloader:before {
-      content: "";
-      position: fixed;
-      top: calc(50% - 30px);
-      left: calc(50% - 30px);
-      border: 6px solid #a41616;
-      border-top-color: #464dee;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      -webkit-animation: animate-preloader 1s linear infinite;
-      animation: animate-preloader 1s linear infinite;
-      } 
+        .preloader:before {
+        content: "";
+        position: fixed;
+        top: calc(50% - 30px);
+        left: calc(50% - 30px);
+        border: 6px solid #a41616;
+        border-top-color: #464dee;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        -webkit-animation: animate-preloader 1s linear infinite;
+        animation: animate-preloader 1s linear infinite;
+        } 
 
-    @-webkit-keyframes animate-preloader {
-        0% {
-          transform: rotate(0deg);
+        @-webkit-keyframes animate-preloader {
+            0% {
+            transform: rotate(0deg);
+            }
+            100% {
+            transform: rotate(360deg);
+            }
         }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
 
-    @keyframes animate-preloader {
-        0% {
-          transform: rotate(0deg);
+        @keyframes animate-preloader {
+            0% {
+            transform: rotate(0deg);
+            }
+            100% {
+            transform: rotate(360deg);
+            }
         }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
     </style>
 </head>
 
