@@ -61,9 +61,9 @@
                         <div class="card" style="border-radius:50px;">
 
                             <div class="card-body p-4">
-                                <div class="text-center w-75 m-auto">
+                                <div class="text-center w-75 m-auto ">
                                     <!-- <a href="index.php"> -->
-                                        <span><img src="assets/images/Healthy_Entrepreneurs.png" alt="" height="100"></span>
+                                        <span><img src="assets/images/Healthy_Entrepreneurs.png" alt="HealthyEntrepreneurs" height="100" style="margin-bottom:15px;"></span>
                                     <!-- </a> -->
                                     <!-- <p class="text-dark text-uppercase font-weight-bold mb-2 mt-1">Healthy Entrepreneurs <br> Customer Loyalty App</p> -->
                                 </div>
