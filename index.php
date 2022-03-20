@@ -16,7 +16,7 @@
         <meta content="customer loyalty program" name="Coderhack" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/bubbles_logo.jpg">
+        <link rel="shortcut icon" href="assets/images/Healthy_Entrepreneurs.png">
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -63,12 +63,12 @@
                             <div class="card-body p-4">
                                 <div class="text-center w-75 m-auto">
                                     <!-- <a href="index.php"> -->
-                                        <span><img src="assets/images/bubbles_logo.jpg" alt="" height="100"></span>
+                                        <span><img src="assets/images/Healthy_Entrepreneurs.png" alt="" height="100"></span>
                                     <!-- </a> -->
-                                    <p class="text-dark text-uppercase font-weight-bold mb-2 mt-1">Healthy Entrepreneurs <br> Customer Loyalty App</p>
+                                    <!-- <p class="text-dark text-uppercase font-weight-bold mb-2 mt-1">Healthy Entrepreneurs <br> Customer Loyalty App</p> -->
                                 </div>
 
-                                <h5 class="auth-title text-danger">Please Sign In</h5>
+                                <h5 class="auth-title text-danger">Customer Loyalty App | Please Sign In</h5>
 
                                 <form id="login_form" method="POST">
                                     <div class="col mb-2 text-center d-none">                                 
@@ -111,7 +111,7 @@
 
 
         <footer class="footer footer-alt">
-            <?php echo date('Y') ?> &copy; Developed by <a href="javascript:void(0)" class="text-muted">Jecmas</a> 
+            <?php echo date('Y') ?> &copy; Developed by <a href="javascript:void(0)" class="text-muted">Coderhack</a> 
         </footer>
 
         <!-- Vendor js -->
