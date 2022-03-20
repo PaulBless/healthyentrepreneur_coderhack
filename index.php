@@ -10,7 +10,7 @@
 <html lang="en">
     <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         
-        <title>Healthy Entrepreneur | Login</title>
+        <title>Healthy Entrepreneurs | Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="a powerful customer loyalty program for healthy entrepreneurs " name="description" />
         <meta content="customer loyalty program" name="Coderhack" />
@@ -70,7 +70,7 @@
 
                                 <h5 class="auth-title text-danger">Customer Loyalty App | Please Sign In</h5>
 
-                                <form id="login_form" method="POST">
+                                <form id="login_form" method="POST" action="login.php">
                                     <div class="col mb-2 text-center d-none">                                 
                                         <span class="text-secondary font-weight-lighter">Login with your username and password to continue!</span>
                                     </div>
@@ -140,7 +140,7 @@
                     history.pushState(null, null, path + window.location.search)
                 });
                 
-                $("#login_form").submit(function(e) {
+                $("#login_formm").submit(function(e) {
                     e.preventDefault();
                     var formdata = $(this).serialize();
 

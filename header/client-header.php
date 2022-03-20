@@ -1,37 +1,37 @@
 <?php
 
-require_once 'db/db.php';
+// require_once 'db/db.php';
 
-//Check if user is authenticated
-if(isset($_COOKIE['h_i'])){
-    $harsed_id = $_COOKIE['h_i'];
+// //Check if user is authenticated
+// if(isset($_COOKIE['h_i'])){
+//     $harsed_id = $_COOKIE['h_i'];
     
-  // ! Strip first 4 characters
-    $stripped = substr($harsed_id,2);
-    $get_selected_role = $stripped[0];
+//   // ! Strip first 4 characters
+//     $stripped = substr($harsed_id,2);
+//     $get_selected_role = $stripped[0];
     
-    if($get_selected_role === 'a'){
-        // role is admin
+//     if($get_selected_role === 'a'){
+//         // role is admin
     
-        echo "<script>window.location.href='index.php'</script>";
+//         echo "<script>window.location.href='index.php'</script>";
     
-    }else if($get_selected_role === 'o'){
-        // role is pharmacist
-         //! get user id
-         $get_id = substr($stripped,10);
+//     }else if($get_selected_role === 'o'){
+//         // role is pharmacist
+//          //! get user id
+//          $get_id = substr($stripped,10);
     
-         $check_pharmacy_database = mysqli_query($connectionString,"SELECT * FROM `pharmacists_table` WHERE `pharmacists_id` = '$get_id' LIMIT 1") or die(mysqli_error($connectionString));
+//          $check_pharmacy_database = mysqli_query($connectionString,"SELECT * FROM `pharmacists_table` WHERE `pharmacists_id` = '$get_id' LIMIT 1") or die(mysqli_error($connectionString));
      
-         if(mysqli_num_rows($check_pharmacy_database) <= 0){
-             echo "<script>window.location.href='index.php'</script>";
-         }
-    }else{
-        echo "<script>window.location.href='index.php'</script>";
-    }
+//          if(mysqli_num_rows($check_pharmacy_database) <= 0){
+//              echo "<script>window.location.href='index.php'</script>";
+//          }
+//     }else{
+//         echo "<script>window.location.href='index.php'</script>";
+//     }
     
-    }else{
-        echo "<script>window.location.href='index.php'</script>";
-    }
+//     }else{
+//         echo "<script>window.location.href='index.php'</script>";
+//     }
 
 
 ?>
@@ -43,7 +43,7 @@ if(isset($_COOKIE['h_i'])){
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-    <title>Quick Sales | Staff</title>
+    <title>Healthy Entrepreneurs | Salesperson</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A powerful online pharmacy system for your shops" name="description" />
     <meta content="Pharmacy  Management System" name="zelus" />

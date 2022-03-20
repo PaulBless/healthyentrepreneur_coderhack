@@ -50,12 +50,7 @@
                                     <li>
                                         <a href="manage_product.php"> Manage Products</a>
                                     </li>
-                                    <li>
-                                        <a href="categories.php"> Manage Category</a>
-                                    </li>
-                                    <li>
-                                        <a href="add_category.php"> Add Category</a>
-                                    </li>
+                                 
                                     
                                 </ul>
                             </li>

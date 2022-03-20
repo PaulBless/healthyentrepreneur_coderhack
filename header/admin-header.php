@@ -1,108 +1,108 @@
 <?php
 
-require_once 'db/db.php';
+// require_once 'db/db.php';
 
 
 //Check if user is authenticated
-if(isset($_COOKIE['h_i'])){
-$harsed_id = $_COOKIE['h_i'];
+// if(isset($_COOKIE['h_i'])){
+// $harsed_id = $_COOKIE['h_i'];
 
 // ! Strip first 4 characters
-$stripped = substr($harsed_id,2);
-$get_selected_role = $stripped[0];
+// $stripped = substr($harsed_id,2);
+// $get_selected_role = $stripped[0];
 
-if($get_selected_role === 'a'){
+// if($get_selected_role === 'a'){
     // role is admin
 
-    //! get user id
-    $get_id = substr($stripped,10);
+    // //! get user id
+    // $get_id = substr($stripped,10);
 
-    $check_admin_database = mysqli_query($connectionString,"SELECT * FROM `users_table` WHERE `users_table_id` = '$get_id' LIMIT 1") or die(mysqli_error($connectionString));
+    // $check_admin_database = mysqli_query($connectionString,"SELECT * FROM `users_table` WHERE `users_table_id` = '$get_id' LIMIT 1") or die(mysqli_error($connectionString));
 
-    if(mysqli_num_rows($check_admin_database) <= 0){
-        echo "<script>window.location.href='index.php'</script>";
-    }
+    // if(mysqli_num_rows($check_admin_database) <= 0){
+    //     echo "<script>window.location.href='index.php'</script>";
+    // }
 
-    }else if($get_selected_role === 'o'){
-        // role is pharmacist
-        echo "<script>window.location.href='index.php'</script>";
-    }else{
-        echo "<script>window.location.href='index.php'</script>";
-    }
+    // }else if($get_selected_role === 'o'){
+    //     // role is pharmacist
+    //     echo "<script>window.location.href='index.php'</script>";
+    // }else{
+    //     echo "<script>window.location.href='index.php'</script>";
+    // }
 
-    }else{
-        echo "<script>window.location.href='index.php'</script>";
-    }
-
-
-
-    $expire_alert_medicine_name = [];
-    $expire_alert_remaining = [];
-
-    $expired_medicine_name = [];
-    $expired_medicine_expiry = [];
-
-    $stock_alert_remain = [];
-    $stock_alert_name = [];
-
-    $expired_counter = 0;
-    $expire_alert_counter = 0;
-    $stock_alert_counter = 0;
+    // }else{
+    //     echo "<script>window.location.href='index.php'</script>";
+    // }
 
 
-    $get_minimum_expire_alert = mysqli_query($connectionString,"SELECT * FROM tbl_settings WHERE settings_id = 8") or die(mysqli_error($connectionString));
-    $get_minimum_item = mysqli_fetch_array($get_minimum_expire_alert);
-    $minimum = $get_minimum_item['settings_ans'];                                     
-    $getProductInfo = mysqli_query($connectionString,"SELECT * FROM tbl_products JOIN categories_tbl on tbl_products.product_category = categories_tbl.category_id ORDER BY tbl_products.tbl_products_id ASC")or die(mysqli_error($connectionString));
-    while($product_info = mysqli_fetch_array($getProductInfo)){  
 
-    $get_expiry= $product_info['expiry_date'];
-    $get_product_name = $product_info['product_name'];
+    // $expire_alert_medicine_name = [];
+    // $expire_alert_remaining = [];
+
+    // $expired_medicine_name = [];
+    // $expired_medicine_expiry = [];
+
+    // $stock_alert_remain = [];
+    // $stock_alert_name = [];
+
+    // $expired_counter = 0;
+    // $expire_alert_counter = 0;
+    // $stock_alert_counter = 0;
+
+
+    // $get_minimum_expire_alert = mysqli_query($connectionString,"SELECT * FROM tbl_settings WHERE settings_id = 8") or die(mysqli_error($connectionString));
+    // $get_minimum_item = mysqli_fetch_array($get_minimum_expire_alert);
+    // $minimum = $get_minimum_item['settings_ans'];                                     
+    // $getProductInfo = mysqli_query($connectionString,"SELECT * FROM tbl_products JOIN categories_tbl on tbl_products.product_category = categories_tbl.category_id ORDER BY tbl_products.tbl_products_id ASC")or die(mysqli_error($connectionString));
+    // while($product_info = mysqli_fetch_array($getProductInfo)){  
+
+    // $get_expiry= $product_info['expiry_date'];
+    // $get_product_name = $product_info['product_name'];
                                                 
-    $get_current_date = date_create(date("d-M-Y"));
-    $check_expire = date_create(date('d-M-Y', strtotime($get_expiry))); 
-    $interval = date_diff( $get_current_date, $check_expire);
+    // $get_current_date = date_create(date("d-M-Y"));
+    // $check_expire = date_create(date('d-M-Y', strtotime($get_expiry))); 
+    // $interval = date_diff( $get_current_date, $check_expire);
 
-    $remaining_days = intval($interval->format('%R%a'));
-    $months_remaining = $interval->format('%m months remaining');
+    // $remaining_days = intval($interval->format('%R%a'));
+    // $months_remaining = $interval->format('%m months remaining');
                                             
 ?>
 <?php
-    if ($months_remaining <= $minimum && $remaining_days < 0) {
-    $expired_counter++;
-    array_push($expired_medicine_expiry,$get_expiry);
-    array_push($expired_medicine_name,$get_product_name);
-    }else if($months_remaining <= $minimum && $remaining_days > 0){
-    $expire_alert_counter++;
-    array_push($expire_alert_remaining,$remaining_days);
-    array_push($expire_alert_medicine_name,$get_product_name);
-    }else{}};
+    // if ($months_remaining <= $minimum && $remaining_days < 0) {
+    // $expired_counter++;
+    // array_push($expired_medicine_expiry,$get_expiry);
+    // array_push($expired_medicine_name,$get_product_name);
+    // }else if($months_remaining <= $minimum && $remaining_days > 0){
+    // $expire_alert_counter++;
+    // array_push($expire_alert_remaining,$remaining_days);
+    // array_push($expire_alert_medicine_name,$get_product_name);
+    // }else{}};
 
 
-    $get_minimum_stock_alert = mysqli_query($connectionString,"SELECT * FROM tbl_settings WHERE settings_id = 6") or die(mysqli_error($connectionString));
-    $get_minimum_item = mysqli_fetch_array($get_minimum_stock_alert);
-    $minimum = $get_minimum_item['settings_ans'];
+    // $get_minimum_stock_alert = mysqli_query($connectionString,"SELECT * FROM tbl_settings WHERE settings_id = 6") or die(mysqli_error($connectionString));
+    // $get_minimum_item = mysqli_fetch_array($get_minimum_stock_alert);
+    // $minimum = $get_minimum_item['settings_ans'];
 
-    $getProductInfo = mysqli_query($connectionString,"SELECT * FROM tbl_products JOIN categories_tbl on tbl_products.product_category = categories_tbl.category_id WHERE tbl_products.tbl_products_id <= '$minimum' ORDER BY tbl_products.tbl_products_id ASC")or die(mysqli_error($connectionString));
-    while($product_info = mysqli_fetch_array($getProductInfo)){  
-        $get_product_name = $product_info['product_name'];
-        $get_product_quantity = $product_info['quantity_available_box'];
+    // $getProductInfo = mysqli_query($connectionString,"SELECT * FROM tbl_products JOIN categories_tbl on tbl_products.product_category = categories_tbl.category_id WHERE tbl_products.tbl_products_id <= '$minimum' ORDER BY tbl_products.tbl_products_id ASC")or die(mysqli_error($connectionString));
+    // while($product_info = mysqli_fetch_array($getProductInfo)){  
+    //     $get_product_name = $product_info['product_name'];
+    //     $get_product_quantity = $product_info['quantity_available_box'];
 
-    $stock_alert_counter++;
-    array_push($stock_alert_name,$get_product_name);
-    array_push($stock_alert_remain,$get_product_quantity);
+    // $stock_alert_counter++;
+    // array_push($stock_alert_name,$get_product_name);
+    // array_push($stock_alert_remain,$get_product_quantity);
         
-    }
+    // }
 
 
-    if($_COOKIE['c_r']==='a' && $_COOKIE['u_r']==='a'){
-        $selected_a_id = $_COOKIE['u_i'];
-        $get_image = mysqli_query($connectionString,"SELECT * FROM `users_table` WHERE `users_table_id` = '$selected_a_id'")or die(mysqli_error($connectionString));   
-        if(mysqli_num_rows($get_image) > 0){
-            $get_details = mysqli_fetch_array($get_image);
-            $picture = $get_details['users_profile'];
-        }
-    }
+    // if($_COOKIE['c_r']==='a' && $_COOKIE['u_r']==='a'){
+    //     $selected_a_id = $_COOKIE['u_i'];
+    //     $get_image = mysqli_query($connectionString,"SELECT * FROM `users_table` WHERE `users_table_id` = '$selected_a_id'")or die(mysqli_error($connectionString));   
+    //     if(mysqli_num_rows($get_image) > 0){
+    //         $get_details = mysqli_fetch_array($get_image);
+    //         $picture = $get_details['users_profile'];
+    //     }
+    // }
 
 ?>
 
@@ -221,163 +221,14 @@ if($get_selected_role === 'a'){
         <!-- Topbar Start -->
         <div class="navbar-custom">
             <ul class="list-unstyled topnav-menu float-right mb-0">
-                <li class="dropdown notification-list">
-                    <a class="nav-link dropdown-toggle  waves-effect" data-toggle="dropdown" href="#" role="button"
-                        aria-haspopup="false" aria-expanded="false">
-                        <i class="fas fa-medkit noti-icon"></i>
-                        <span
-                            class="badge badge-primary rounded-circle noti-icon-badge"><?php echo $stock_alert_counter  ?></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-lg">
-
-                         <!-- item -->
-                        <div class="dropdown-item noti-title">
-                            <h5 class="m-0 text-white">
-                                Stock Alert List
-                            </h5>
-                        </div>
-
-                        <div class="slimscroll noti-scroll">
-
-                            <?php
-                                     $get_length_of_stock_alert = sizeof($stock_alert_name);
-
-                                     for ($i=0; $i < $get_length_of_stock_alert; $i++) { 
-                                        $current_stock_name = $stock_alert_name[$i];
-                                         $current_stock_remain = $stock_alert_remain[$i];
-
-                                    ?>
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item"> 
-                                <div class="notify-icon">
-                                    <img src="assets/images/<?php  echo $picture; ?>" class="img-fluid rounded-circle" alt="" /> 
-                                </div>
-                                <p class="notify-details"><?php echo $current_stock_name; ?> has</p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small><?php echo $current_stock_remain; ?> items remaining</small>
-                                </p>
-                            </a> 
-
-
-                            <?php } ?>
-
-                            <!-- All-->
-                            <a href="stock_alert.php"
-                                class="dropdown-item text-center text-primary notify-item notify-all">
-                                See All Products
-                                <i class="fi-arrow-right"></i>
-                            </a>
-
-                        </div>
-                </li> 
-
-                <li class="dropdown notification-list"> 
-                    <a class="nav-link dropdown-toggle  waves-effect" data-toggle="dropdown" href="#" role="button"
-                        aria-haspopup="false" aria-expanded="false">
-                        <i class="fas fa-bell noti-icon"></i>
-                        <span
-                            class="badge badge-secondary rounded-circle noti-icon-badge"><?php echo $expire_alert_counter; ?></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-lg">
-
-                         <!-- item -->
-                        <div class="dropdown-item noti-title">
-                            <h5 class="m-0 text-white">
-
-                                Expire Alert List
-                            </h5>
-                        </div>
-
-                        <div class="slimscroll noti-scroll">
-                            <?php
-                                    $get_length_of_expired = sizeof($expire_alert_medicine_name);
-
-                                    for ($i=0; $i < $get_length_of_expired; $i++) { 
-                                        $current_expire_name = $expire_alert_medicine_name[$i];
-                                        $current_expire_remain = $expire_alert_remaining[$i];
-
-                                    ?>
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon">
-                                    <img src="assets/images/<?php echo $picture; ?>" class="img-fluid rounded-circle"
-                                        alt="" /> </div>
-                                <p class="notify-details"><?php echo $current_expire_name; ?> has</p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small><?php echo $current_expire_remain; ?> days to expire</small>
-                                </p>
-                            </a>
-
-
-                            <?php  } ?>
-
-                            <!-- All-->
-                            <a href="expire_alert.php"
-                                class="dropdown-item text-center text-primary notify-item notify-all">
-                                Expire Alert List
-                                <i class="fi-arrow-right"></i>
-                            </a>
-
-                        </div>
-                </li> 
-
-                <li class="dropdown notification-list"> 
-                     <a class="nav-link dropdown-toggle  waves-effect" data-toggle="dropdown" href="#" role="button"
-                        aria-haspopup="false" aria-expanded="false">
-                        <i class="fas fa-exclamation-triangle noti-icon"></i>
-                        <span
-                            class="badge badge-danger rounded-circle noti-icon-badge"><?php //echo $expired_counter; ?></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-lg">
-
-                        <!-- item-->
-                        <div class="dropdown-item noti-title">
-                            <h5 class="m-0 text-white">
-                                Expired Products List
-                            </h5>
-                        </div>
-
-                        <div class="slimscroll noti-scroll">
-                            <?php
-                                    $get_length_of_expired = sizeof($expired_medicine_name);
-
-                                    for ($i=0; $i < $get_length_of_expired; $i++) { 
-                                        $current_expire_name = $expired_medicine_name[$i];
-                                        $current_expire_expiry = $expired_medicine_expiry[$i];
-
-                                    ?>
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon">
-                                    <img src="assets/images/<?php echo $picture; ?>" class="img-fluid rounded-circle"
-                                        alt="" /> </div>
-                                <p class="notify-details"><?php echo $current_expire_name; ?> expired on</p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small><?php echo date('d-M-Y', strtotime($current_expire_expiry)); ?></small>
-                                </p>
-                            </a>
-
-
-                            <?php  } ?> 
-
-
-
-                            <!-- All-->
-                            <a href="expired_medicine.php"
-                                class="dropdown-item text-center text-primary notify-item notify-all">
-                                Expire List
-                                <i class="fi-arrow-right"></i>
-                            </a>
-
-                        </div>
-                </li>
+               
 
                 <li class="dropdown notification-list">
                     <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false" aria-expanded="false">
-                        <img src="assets/images/<?php  echo $picture; ?>" alt="user-image" class="rounded-circle">
+                        <img src="assets/images/default.png ?>" alt="user-image" class="rounded-circle">
                         <span class="pro-user-name ml-1">
-                            <?php  echo $_COOKIE['u_n']; ?> <i class="mdi mdi-chevron-down"></i>
+                            <?php  //echo $_COOKIE['u_n']; ?> <i class="mdi mdi-chevron-down"></i>
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
@@ -417,16 +268,13 @@ if($get_selected_role === 'a'){
                     </div>
                 </li>
 
-
-
-
             </ul>
 
             <!-- LOGO -->
             <div class="logo-box">
                 <a href="dashboard.php" class="logo text-center">
                     <span class="logo-lg">
-                        <img src="assets/images/bubbles_logo.jpg" alt="" height="60">
+                        <img src="assets/images/Healthy_Entrepreneurs.png" alt="" height="60">
                         <!-- <span class="logo-lg-text-light">Upvex</span> -->
                     </span>
                     <span class="logo-sm">

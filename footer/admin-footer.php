@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 text-secondary">
-                &nbsp; &copy; <?php echo date('Y'); ?> Developed by <a target="_blank" href="www.snetgh.com">Step Network</a>
+                &nbsp; &copy; <?php echo date('Y'); ?> Developed by <a target="_blank" href="#">Coderhack</a>
             </div>
 
         </div>
